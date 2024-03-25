@@ -1,0 +1,6 @@
+django
+django-filter
+djangorestframework
+drf-yasg
+markdown
+pytest
