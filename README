@@ -1,0 +1,64 @@
+# Movie Recommendation System - README
+
+## Introduction
+This project is a Movie Recommendation System developed using Django and Django REST Framework. It provides users with a platform to browse movies, rate them, and receive personalized recommendations based on their ratings and preferences.
+
+## Features
+- Browse a list of movies
+- View detailed information about each movie
+- Rate movies on a scale from 0.5 to 5 stars
+- Receive personalized movie recommendations based on ratings
+- Filter and sort movies by various criteria
+- Export the movie list to a CSV file
+
+## Installation
+To run the Movie Recommendation System locally, follow these steps:
+
+1. Clone the repository to your local machine:
+
+git clone <repository_url>
+
+2. Navigate to the project directory
+ cd Movielens
+
+3. Install the required Python packages using pip
+pip install -r requirements.txt
+
+4. Apply database migrations
+python manage.py makemigrations
+python manage.py migrate
+
+5. Download the CSV files movies.csv ,tags.csv and ratings.csv files from https://grouplens.org/datasets/movielens/
+and save them in movielens/movies/management/commands folder.
+
+6. Load initial movie data using follwing command .
+python manage.py movies_load <movies_csv_file_path>
+
+7. Load initial Tags  data using follwing command 
+python manage.py tags_load <tags_csv_file_path>
+
+8. Load initial ratings  data using follwing command 
+python manage.py ratings_load <ratings_csv_file_path>
+
+9. Start the Django development server:
+python manage.py runserver
+
+10. Access the application in your web browser at http://127.0.0.1:8000/
+Usage
+Browse Movies: Navigate to the homepage to browse a list of available movies.
+View Movie Details: Click on a movie to view detailed information, including title, genres, and user ratings.
+Rate Movies: While viewing a movie, you can rate it on a scale from 0.5 to 5 stars.
+Receive Recommendations: Based on your ratings, the system will provide personalized movie recommendations.
+Filter and Sort: Use the filter and sorting options to narrow down your movie selection based on genres, release date, and more.
+Export Movie List: Use the management command movies_export to export the movie list to a CSV file.
+API Endpoints
+/api/movies/: GET, POST - List and create movies.
+/api/movies/{movieId}/: GET, PUT, PATCH - Retrieve, update, and partially update a movie.
+/api/movies/{movieId}/rate/: POST - Rate a movie.
+/api/ratings/: GET - List all ratings.
+/api/tags/: GET - List all tags.
+Management Commands
+movies_load: Load movie data from a CSV file into the database.
+tags_load: Load tags data from a CSV file into the database.
+ratings_load: Load tags data from a CSV file into the database.
+export_movies: Export the movie list to a CSV file.
